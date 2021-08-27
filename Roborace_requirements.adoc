@@ -1,0 +1,50 @@
+== S.2.0 System
+
+=== RQ-S.2.0.01 
+
+The system shall be able to complete a given number of laps on a predefined racetrack without obstacles autonomously (with no intervention of human pilot)
+
+=== RQ-S.2.0.02 
+
+The system shall be able to avoid virtual obstacles and collect virtual bonuses.
+
+== S.2.1 Perception module
+
+=== RQ-S.2.1.01 
+
+The Perception module shall detect and localize obstacles and another vehicles
+
+=== RQ-S.2.1.02 
+
+The Perception module shall provide object tracking and path prediction
+
+== S.2.2 Mapping and localization module
+
+Mapping and localization data is currently provided by the Roborace
+
+== S.2.3 Planning module
+
+=== RQ-S.2.3.01 
+
+The Planning module shall calculate the racing line (path and velocity) for a given track.
+
+==== RQ-S.2.3.01.01 
+
+At every position on a raceline the speed in the velocity profile shall not exceed the maximum racecar's speed.
+
+==== RQ-S.2.3.01.02 
+
+At every position on a raceline the centripetal acceleration shall not exceed the maximum racecar's centripetal acceleration (6 m/s2 if not changed by the mission rules or team's decision).
+
+==== RQ-S.2.3.01.03 
+
+At every position on a raceline there must be a safety distance not less than 15 cm from each of race car's wheels to the racetrack borders.
+
+=== RQ-S.2.3.02 
+
+The Planning module shall generate local path which takes into account vehicle's current state, obstacles on a road, and converges to a global path when possible.
+
+== S.2.4 Control module
+
+=== RQ-S.2.4.01 
+The control module shall generate steering, throttle and brake control commands to match the desired speed and path
