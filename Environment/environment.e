@@ -6,11 +6,23 @@ note
 	revision: "$11/08/2021$"
 	EIS: "name=Project Requirement 1.1", "protocol=URI", "src=/home/mnaumcheva/Roborace/roboraceRequirements/main.pdf", "tag=requirement", "nameddest=4.1"
 
-deferred class
+class
 	ENVIRONMENT
 
+create
+	make
+
 feature
-	obstacles: BAG[OBSTACLE]
+	make (m: MISSION; s: SENSORS_SETUP; r: RACETRACK)
+		do
+			create obstacles.make(0)
+			create roborace.default_create
+			mission := m
+			sensors := s
+			racetrack := r
+		end
+
+	obstacles: ARRAYED_SET[OBSTACLE]
 		--Set of detected obstacles on racetrack
 
 	roborace: ROBORACE
@@ -19,7 +31,7 @@ feature
 	mission: MISSION
 		--Current mission details
 
-	sensors: SENSORS
+	sensors: SENSORS_SETUP
 		--Set of sensos insalled of the vehicle
 
 	racetrack: RACETRACK

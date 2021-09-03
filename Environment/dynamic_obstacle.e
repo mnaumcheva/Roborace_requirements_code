@@ -4,21 +4,34 @@ note
 	date: "$07/04/2021$"
 	revision: "$07/04/2021$"
 
-deferred class
+class
 	DYNAMIC_OBSTACLE
 
 inherit
 	OBSTACLE
 
+create
+	make_dynamic
+
 feature
+
+	make_dynamic (t: STRING; l: LOCATION; s: TUPLE[REAL, REAL, REAL]; sp: REAL)
+		do
+			type := t
+			location := l
+			size := s
+			speed := sp
+			create path_history.make
+			create path_prediction.make
+		end
 
 	speed: REAL
 		-- Current speed
 
-	path_history: SEQUENCE[LOCATION]
+	path_history: LINKED_LIST[LOCATION]
 		-- Path history
 
-	path_prediction: SEQUENCE[LOCATION]
+	path_prediction: LINKED_LIST[LOCATION]
 		-- Predicted path
 
 	update_path_history

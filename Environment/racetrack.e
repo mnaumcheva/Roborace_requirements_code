@@ -4,10 +4,19 @@ note
 	date: "$15/06/2021$"
 	revision: "$15/06/2021$"
 
-deferred class
+class
 	RACETRACK
 
+create
+	make
+
 feature
+	make (m: MAP; sl: TUPLE [LOCATION, LOCATION]; sg: ARRAY [LOCATION])
+		do
+			map := m
+			starting_line := sl
+			starting_grid := sg
+		end
 
 	map: MAP
 			-- Coordinates of the bounding lines

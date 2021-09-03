@@ -4,9 +4,17 @@ note
 	date: "$01/06/2021$"
 	revision: "$01/06/2021$"
 
-deferred class
+class
 	PERCEPTION_MODULE
 
+create
+	make
+
+feature
+	make (c: RACECAR)
+		do
+			car :=c
+		end
 feature
 	car: RACECAR
 

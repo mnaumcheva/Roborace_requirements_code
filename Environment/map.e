@@ -4,10 +4,17 @@ note
 	date: "$07/04/2021$"
 	revision: "$11/08/2021$"
 
-deferred class
+class
 	MAP
 
+create
+	make
 feature
+	make (tb: SEQUENCE [TUPLE [LOCATION, LOCATION]]; sl: TUPLE [LOCATION, LOCATION])
+		do
+			track_borders := tb
+			starting_line := sl
+		end
 
 	track_borders: SEQUENCE [TUPLE [LOCATION, LOCATION]]
 			-- Coordinates of the bounding lines of racetrack

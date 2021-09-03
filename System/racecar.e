@@ -4,10 +4,26 @@ note
 	date: "$07/04/2021$"
 	revision: "$17/08/2021$"
 
-deferred class
+class
 	RACECAR
 
+create
+	make
+
 feature
+	make (m: MISSION; s: SENSORS_SETUP; r: RACETRACK; l: LOCATION)
+		do
+			create environment.make (m, s, r)
+			mission := m
+			location := l
+			sensors := s
+
+			create control_module.make (Current)
+			create perception_module.make (Current)
+			create planning_module.make (Current)
+			create localization_and_mapping_module.make (Current)
+		end
+
 	control_module: CONTROL_MODULE
 	perception_module: PERCEPTION_MODULE
 	planning_module: PLANNING_MODULE
@@ -24,7 +40,8 @@ feature
 	is_accelerating, is_braking, raceline_is_calculated: BOOLEAN
 
 	yellow_flag_is_shown (speedlimit : REAL) : BOOLEAN
-	deferred
+	do
+
 	end
 
 feature
@@ -33,7 +50,7 @@ feature
 	environment: ENVIRONMENT
 		-- Racecar environment components
 
-	sensors: SENSORS
+	sensors: SENSORS_SETUP
 		-- Racecar sensors
 
 	mission: MISSION
@@ -51,11 +68,11 @@ feature
 	steering_angle: REAL
 		-- Current steering angle in rad
 
-	global_trajectory: SEQUENCE[TUPLE[LOCATION, REAL]]
-		-- Racecar global trajectory
+--	global_trajectory: SEQUENCE[TUPLE[LOCATION, REAL]]
+--		-- Racecar global trajectory
 
-	local_trajectory: SEQUENCE[TUPLE[LOCATION, REAL]]
-		-- Racecar local trajectory
+--	local_trajectory: SEQUENCE[TUPLE[LOCATION, REAL]]
+--		-- Racecar local trajectory
 
 	is_on_racetrack: BOOLEAN
 
@@ -64,7 +81,8 @@ feature
 	start_command_is_received: BOOLEAN
 
 	location_passed (l: LOCATION) : BOOLEAN
-		deferred
+		do
+
 		end
 
 -- Parameters	
@@ -104,7 +122,8 @@ feature
 		-- Acceptable error margin when setting steering angle
 
 	is_valid_acceleration (old_speed: REAL; new_speed: REAL; timeincrement: REAL) : BOOLEAN
-		deferred
+		do
+
 		end
 
 invariant

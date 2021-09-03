@@ -4,10 +4,18 @@ note
 	date: "$01/06/2021$"
 	revision: "$17/08/2021$"
 
-deferred class
+class
 	CONTROL_MODULE
 
+create
+	make
+
 feature
+	make (c: RACECAR)
+		do
+			car :=c
+		end
+
 	car: RACECAR
 
 feature
@@ -35,7 +43,8 @@ feature
 	brake
 		require
 			not car.is_accelerating
-		deferred
+		do
+
 		ensure
 			car.is_braking
 		end
@@ -59,7 +68,8 @@ feature
 	safe_stop
 		require
 			car.race_is_finished
-		deferred
+		do
+
 		ensure
 			not car.is_moving
 		end
@@ -67,7 +77,8 @@ feature
 	emergency_stop
 		require
 			car.red_flag_is_shown or car.there_is_safety_hazard
-		deferred
+		do
+
 		ensure
 			not car.is_moving
 		end

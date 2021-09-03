@@ -4,10 +4,21 @@ note
 	date: "$07/04/2021$"
 	revision: "$07/04/2021$"
 
-deferred class
+class
 	OBSTACLE
 
+create
+	make
+
 feature
+
+	make (t: STRING; l: LOCATION; s: TUPLE[REAL, REAL, REAL])
+		do
+			type := t
+			location := l
+			size := s
+		end
+
 	type: STRING
 		-- Obstacle type
 

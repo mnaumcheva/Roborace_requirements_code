@@ -5,7 +5,7 @@ note
 	revision: "$23/06/2021$"
 
 deferred class
-	SENSORS
+	SENSORS_SETUP
 
 feature
 

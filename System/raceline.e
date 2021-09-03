@@ -4,12 +4,18 @@ note
 	date: "$Date$"
 	revision: "$Revision$"
 
-deferred class
+class
 	RACELINE
-
+create
+	make_empty
 feature
-	raceline: SEQUENCE[LOCATION]
-	velocity_profile: SEQUENCE[REAL]
+	make_empty
+		do
+			create raceline.make
+			create velocity_profile.make
+		end
+	raceline: LINKED_LIST[LOCATION]
+	velocity_profile: LINKED_LIST[REAL]
 
 invariant
 	raceline.count = velocity_profile.count

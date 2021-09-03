@@ -4,11 +4,20 @@ note
 	date: "$01/06/2021$"
 	revision: "$17/08/2021$"
 
-deferred class
+class
 	PLANNING_MODULE
 
+create
+	make
 feature
 	car: RACECAR
+	make (c: RACECAR)
+		do
+			create raceline.make_empty
+			create local_plan.make_empty
+			create global_plan.make_empty
+			car := c
+		end
 
 feature
 	raceline, local_plan, global_plan: RACELINE
@@ -25,7 +34,8 @@ feature
 		require
 			racetrack_is_a_circuit: ;
 			racetrack_wide_enough: ;
-		deferred
+		do
+
 		ensure
 			circuit_trajectory: ;
 			velocity_limit_obeyed: ;
@@ -36,7 +46,7 @@ feature
 		-- Calculate global path from current location to given point
 		-- Input: Road map, Raceline, Parameters, Optimization strategy
 		-- Output: Path, Velocity profile
-		deferred
+		do
 		ensure
 			across raceline.velocity_profile as rl all rl.item < car.max_speed end
 		end
@@ -45,7 +55,7 @@ feature
 		require
 			car.raceline_is_calculated
 			car.obstacle_is_detected or car.there_is_safety_hazard
-		deferred
+		do
 		ensure
 			car.global_plan_is_calculated
 		end
@@ -58,7 +68,7 @@ feature
 		-- Output: Local trajectory, velocity profile		
 		require
 			car.global_plan_is_calculated
-		deferred
+		do
 		ensure
 			car.local_plan_is_calculated
 		end
@@ -67,7 +77,8 @@ feature
 		require
 			car.yellow_flag_is_shown (v) or car.green_flag_is_shown
 			v > 0
-		deferred
+		do
+
 		ensure
 			car.max_speed = v
 		end

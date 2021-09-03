@@ -5,11 +5,26 @@ note
 	revision: "$29/06/2021$"
 
 
-deferred class
+class
 	MISSION
 
-feature
+create
+	make
 
+feature
+	make (r: RACETRACK; nl, na, tl, bts, pts, ptm: INTEGER; sos, sbos, dos: TUPLE[REAL, REAL, REAL])
+		do
+			racetrack := r
+			num_laps := nl
+			num_attempts := na
+			time_limit := tl
+			bonus_time_static := bts
+			penalty_time_static := pts
+			penalty_time_moving := ptm
+			static_obstacle_size := sos
+			static_bonus_obstacle_size := sbos
+			dynamic_obstacle_size := dos
+		end
 	racetrack: RACETRACK
 		--racetrack of the race
 
