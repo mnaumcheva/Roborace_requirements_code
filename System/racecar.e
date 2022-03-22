@@ -2,7 +2,7 @@ note
 	description: "Core system class"
 	author: "Maria Naumcheva"
 	date: "$07/04/2021$"
-	revision: "$17/08/2021$"
+	revision: "$22/03/2022$"
 
 class
 	RACECAR
@@ -31,15 +31,17 @@ feature
 
 feature
 
-	local_plan_is_calculated, global_plan_is_calculated, obstacle_is_detected, race_is_finished,
+	local_plan_is_calculated, global_plan_is_calculated, obstacle_is_detected, race_is_finished, is_in_normal_mode,
 	is_moving, red_flag_is_shown, green_flag_is_shown, there_is_safety_hazard, safe_stop_request_received : BOOLEAN
 
 	unsurmountable_obstacle_detected: BOOLEAN
 		--The obstacle that does not let follow the glodal trajectory is detected
 
+	location_error_is_detected: BOOLEAN
+
 	is_accelerating, is_braking, raceline_is_calculated: BOOLEAN
 
-	yellow_flag_is_shown (speedlimit : REAL) : BOOLEAN
+	yellow_flag_is_shown : BOOLEAN
 	do
 
 	end
@@ -89,7 +91,7 @@ feature
 	max_speed: REAL		-- assign set_max_speed
 		-- Speed limit
 
-	set_max_speed (new_max_speed: REAL)
+	update_max_speed (new_max_speed: REAL)
 		-- Update speed limit
 		require
 			new_max_speed >= 0
@@ -126,10 +128,12 @@ feature
 
 		end
 
+	yellow_flag_speed: REAL
+
 invariant
 	valid_max_angle: max_steering_angle > 0
 	valid_speed: speed < max_speed
-	red_flag_is_shown xor yellow_flag_is_shown (max_speed) xor green_flag_is_shown
+	red_flag_is_shown xor yellow_flag_is_shown xor green_flag_is_shown
 	is_on_racetrack
 
 end

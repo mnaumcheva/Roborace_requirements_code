@@ -57,7 +57,7 @@ feature
 
 		end
 
-	move
+	move (s: REAL; o: REAL)
 		--move along the calculated path and velocity
 		require
 			car.local_plan_is_calculated

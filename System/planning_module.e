@@ -14,13 +14,15 @@ feature
 	make (c: RACECAR)
 		do
 			create raceline.make_empty
-			create local_plan.make_empty
 			create global_plan.make_empty
+			create local_plan.make(c)
 			car := c
 		end
 
 feature
-	raceline, local_plan, global_plan: RACELINE
+	raceline, global_plan: RACELINE
+
+	local_plan: LOCAL_PLAN
 
 	calculate_race_trajectory (circuit_map: MAP;
 								vehicle_param: VEHICLE_PARAMETERS; strategy: INTEGER)
@@ -60,22 +62,23 @@ feature
 			car.global_plan_is_calculated
 		end
 
-	calculate_local_plan
+	calculate_local_plan: LOCAL_PLAN
 		-- Calculate local path from current location to converge to global path
 		-- Input: Vehicle pose; Obstacles location, velocity and path prediction (from Perception module)
 		-- Input: Raceline, Global Velocity profile (from Global Path planner)
 		-- Input: External events
-		-- Output: Local trajectory, velocity profile		
+		-- Output: Local trajectory, velocity profile
 		require
 			car.global_plan_is_calculated
 		do
+			create {LOCAL_PLAN} Result.make (car)
 		ensure
 			car.local_plan_is_calculated
 		end
 
-	adjust_speed_limit (v: REAL)
+	update_max_speed (v: REAL)
 		require
-			car.yellow_flag_is_shown (v) or car.green_flag_is_shown
+			car.yellow_flag_is_shown or car.green_flag_is_shown
 			v > 0
 		do
 
