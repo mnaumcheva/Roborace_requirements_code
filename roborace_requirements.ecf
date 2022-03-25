@@ -17,10 +17,6 @@
 			<concurrency support="none"/>
 			<void_safety support="none"/>
 		</capability>
-		<precompile name="base_pre" location="$ISE_PRECOMP\base-safe.ecf">
-			<option warning="none">
-			</option>
-		</precompile>
 		<library name="base" location="$ISE_LIBRARY\library\base\base.ecf">
 			<option warning="none">
 			</option>

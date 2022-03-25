@@ -5,26 +5,26 @@ note
 	revision: "$Revision$"
 
 class
-	ROBORACE_USE_CASE_SLICES
+	ROBORACE_USE_CASE_STORIES
 
 inherit
 	ROBORACE_USE_CASES
 feature
-	emergency_stop_red_flag_slice
+	emergency_stop_red_flag_story
 		require
 			car.red_flag_is_shown
 		do
 			emergency_stop
 		end
 
-	emergency_stop_location_error_slice
+	emergency_stop_location_error_story
 		require
 			car.location_error_is_detected
 		do
 			emergency_stop
 		end
 
-	race_no_obstacles_race_is_finished_slice
+	race_no_obstacles_race_is_finished_story
 		require
 			not car.is_moving
 			car.global_plan_is_calculated
@@ -36,7 +36,7 @@ feature
 			car.race_is_finished
 		end
 
-	race_no_obstacles_red_flag_is_shown_slice
+	race_no_obstacles_red_flag_is_shown_story
 		require
 			not car.is_moving
 			car.global_plan_is_calculated
@@ -48,7 +48,7 @@ feature
 			car.red_flag_is_shown
 		end
 
-	race_no_obstacles_location_error_is_detected_slice
+	race_no_obstacles_location_error_is_detected_story
 		require
 			not car.is_moving
 			car.global_plan_is_calculated
@@ -60,7 +60,7 @@ feature
 			car.location_error_is_detected
 		end
 
-	race_no_obstacles_is_in_normal_mode_slice
+	race_no_obstacles_is_in_normal_mode_story
 		require
 			not car.is_moving
 			car.global_plan_is_calculated
@@ -72,7 +72,7 @@ feature
 			car.is_in_normal_mode
 		end
 
-	race_no_obstacles_race_is_finished_not_in_normal_mode_slice
+	race_no_obstacles_race_is_finished_not_in_normal_mode_story
 		require
 			not car.is_moving
 			car.global_plan_is_calculated
