@@ -29,7 +29,7 @@ feature
 
 	emergency_stop
 		require
-			car.red_flag_is_shown or car.location_error_is_detected
+			car.red_flag_is_up or car.location_error_is_detected
 		do
 			car.control_module.emergency_stop
 		ensure
@@ -39,11 +39,11 @@ feature
 
 	update_speed
 		require
-			car.yellow_flag_is_shown
+			car.yellow_flag_is_up
 		do
-			car.update_max_speed (car.yellow_flag_speed)
+			car.update_max_speed (car.safe_speed)
 		ensure
-			car.max_speed = car.yellow_flag_speed
+			car.current_max_speed = car.safe_speed
 		end
 
 	race_no_obstacles
@@ -52,7 +52,7 @@ feature
 		require
 			not car.is_moving
 			car.global_plan_is_calculated
-			car.green_flag_is_shown
+			car.green_flag_is_up
 			car.is_on_starting_grid
 		local
 			local_plan: LOCAL_PLAN
@@ -60,16 +60,16 @@ feature
 				--Sequence of system actions in use case main flow
 			from
 			until car.race_is_finished or
-				car.red_flag_is_shown or
+				car.red_flag_is_up or
 				car.location_error_is_detected
 			loop
-				if car.yellow_flag_is_shown then
+				if car.yellow_flag_is_up then
 					update_speed
 				end
 				local_plan := car.planning_module.calculate_local_plan
 				car.control_module.move (local_plan.next_speed, local_plan.next_orientation)
 			end
-			if car.red_flag_is_shown or car.location_error_is_detected then
+			if car.red_flag_is_up or car.location_error_is_detected then
 				emergency_stop
 			else safe_stop
 			end

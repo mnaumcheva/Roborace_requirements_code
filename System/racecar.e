@@ -32,7 +32,7 @@ feature
 feature
 
 	local_plan_is_calculated, global_plan_is_calculated, obstacle_is_detected, race_is_finished, is_in_normal_mode,
-	is_moving, red_flag_is_shown, green_flag_is_shown, there_is_safety_hazard, safe_stop_request_received : BOOLEAN
+	is_moving, red_flag_is_up, green_flag_is_up, there_is_safety_hazard, safe_stop_request_received : BOOLEAN
 
 	unsurmountable_obstacle_detected: BOOLEAN
 		--The obstacle that does not let follow the glodal trajectory is detected
@@ -41,7 +41,7 @@ feature
 
 	is_accelerating, is_braking, raceline_is_calculated: BOOLEAN
 
-	yellow_flag_is_shown : BOOLEAN
+	yellow_flag_is_up : BOOLEAN
 	do
 
 	end
@@ -88,7 +88,13 @@ feature
 		end
 
 -- Parameters	
-	max_speed: REAL		-- assign set_max_speed
+	current_max_speed: REAL
+		-- Current speed limit
+
+	max_speed: REAL
+		-- Speed limit
+
+	safe_speed: REAL
 		-- Speed limit
 
 	update_max_speed (new_max_speed: REAL)
@@ -96,7 +102,10 @@ feature
 		require
 			new_max_speed >= 0
 		do
-			max_speed := new_max_speed
+			current_max_speed := new_max_speed
+		ensure
+			current_max_speed = new_max_speed
+			old max_speed = max_speed
 		end
 
 	normal_speed: REAL
@@ -128,12 +137,10 @@ feature
 
 		end
 
-	yellow_flag_speed: REAL
 
 invariant
 	valid_max_angle: max_steering_angle > 0
-	valid_speed: speed < max_speed
-	red_flag_is_shown xor yellow_flag_is_shown xor green_flag_is_shown
+	valid_speed: speed < current_max_speed
 	is_on_racetrack
 
 end

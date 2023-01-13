@@ -12,7 +12,7 @@ inherit
 feature
 	emergency_stop_red_flag_story
 		require
-			car.red_flag_is_shown
+			car.red_flag_is_up
 		do
 			emergency_stop
 		end
@@ -28,7 +28,7 @@ feature
 		require
 			not car.is_moving
 			car.global_plan_is_calculated
-			car.green_flag_is_shown
+			car.green_flag_is_up
 			car.is_on_starting_grid
 		do
 			race_no_obstacles
@@ -36,23 +36,23 @@ feature
 			car.race_is_finished
 		end
 
-	race_no_obstacles_red_flag_is_shown_story
+	race_no_obstacles_red_flag_is_up_story
 		require
 			not car.is_moving
 			car.global_plan_is_calculated
-			car.green_flag_is_shown
+			car.green_flag_is_up
 			car.is_on_starting_grid
 		do
 			race_no_obstacles
 		ensure
-			car.red_flag_is_shown
+			car.red_flag_is_up
 		end
 
 	race_no_obstacles_location_error_is_detected_story
 		require
 			not car.is_moving
 			car.global_plan_is_calculated
-			car.green_flag_is_shown
+			car.green_flag_is_up
 			car.is_on_starting_grid
 		do
 			race_no_obstacles
@@ -64,7 +64,7 @@ feature
 		require
 			not car.is_moving
 			car.global_plan_is_calculated
-			car.green_flag_is_shown
+			car.green_flag_is_up
 			car.is_on_starting_grid
 		do
 			race_no_obstacles
@@ -76,7 +76,7 @@ feature
 		require
 			not car.is_moving
 			car.global_plan_is_calculated
-			car.green_flag_is_shown
+			car.green_flag_is_up
 			car.is_on_starting_grid
 		do
 			race_no_obstacles

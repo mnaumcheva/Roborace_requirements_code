@@ -78,7 +78,7 @@ feature
 
 	update_max_speed (v: REAL)
 		require
-			car.yellow_flag_is_shown or car.green_flag_is_shown
+			car.yellow_flag_is_up or car.green_flag_is_up
 			v > 0
 		do
 

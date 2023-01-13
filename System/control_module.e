@@ -76,7 +76,7 @@ feature
 
 	emergency_stop
 		require
-			car.red_flag_is_shown or car.there_is_safety_hazard
+			car.red_flag_is_up or car.there_is_safety_hazard
 		do
 
 		ensure
