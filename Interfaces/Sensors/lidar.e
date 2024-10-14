@@ -1,8 +1,7 @@
 note
 	description: "Lidar sensor"
 	author: "Maria Naumcheva"
-	date: "$07/04/2021$"
-	revision: "$16/06/2021$"
+	revision: "14/10/2024"
 
 deferred class
 	LIDAR

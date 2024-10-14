@@ -71,7 +71,7 @@ feature
 		require
 			car.global_plan_is_calculated
 		do
-			create {LOCAL_PLAN} Result.make (car)
+			
 		ensure
 			car.local_plan_is_calculated
 		end

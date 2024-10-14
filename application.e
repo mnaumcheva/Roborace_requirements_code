@@ -1,8 +1,7 @@
 note
-	description: "Roborace_spec root class"
+	description: "Roborace root class"
 	author: "Maria Naumcheva"
-	date: "$07/04/2021$"
-	revision: "$07/04/2021$"
+	revision: "14/10/2024"
 
 class
 	APPLICATION

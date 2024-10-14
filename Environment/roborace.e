@@ -1,9 +1,8 @@
 note
 	description: "Roborace"
 	author: "Maria Naumcheva"
-	date: "$07/04/2021$"
-	revision: "$07/04/2021$"
-
+	revision: "14/10/2024"
+	
 class
 	ROBORACE
 
@@ -12,7 +11,7 @@ feature
 	green_flag: FLAG
 	yellow_flag: FLAG
 	red_flag: FLAG
-	
+
     raise_yellow_flag
         require
             green_flag.is_up

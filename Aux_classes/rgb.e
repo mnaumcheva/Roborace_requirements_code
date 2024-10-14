@@ -1,8 +1,7 @@
 note
 	description: "Color values for RGB color model"
 	author: "Maria Naumcheva"
-	date: "$07/04/2021$"
-	revision: "$21/04/2021$"
+	revision: "14/10/2024"
 
 deferred class
 	RGB

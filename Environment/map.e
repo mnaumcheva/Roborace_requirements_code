@@ -1,8 +1,7 @@
 note
 	description: "2D roadmap"
 	author: "Maria Naumcheva"
-	date: "$07/04/2021$"
-	revision: "$11/08/2021$"
+	revision: "14/10/2024"
 
 class
 	MAP

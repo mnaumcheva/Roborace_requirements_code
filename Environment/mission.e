@@ -1,9 +1,7 @@
 note
 	description: "Mission rules and objectives"
 	author: "Maria Naumcheva"
-	date: "$29/06/2021$"
-	revision: "$29/06/2021$"
-
+	revision: "14/10/2024"
 
 class
 	MISSION

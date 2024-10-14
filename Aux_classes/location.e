@@ -1,8 +1,7 @@
 note
 	description: "Location points on 2D plane"
 	author: "Maria Naumcheva"
-	date: "$07/04/2021$"
-	revision: "$21/04/2021$"
+	revision: "14/10/2024"
 
 deferred class
 	LOCATION

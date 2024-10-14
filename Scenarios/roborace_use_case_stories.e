@@ -1,8 +1,7 @@
 note
-	description: "Summary description for {ROBORACE_USE_CASE_SLICES}."
-	author: ""
-	date: "$Date$"
-	revision: "$Revision$"
+	description: "Use case stories"
+	author: "Maria Naumcheva"
+	revision: "14/10/2024"
 
 class
 	ROBORACE_USE_CASE_STORIES

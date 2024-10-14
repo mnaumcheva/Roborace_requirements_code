@@ -1,8 +1,7 @@
 note
 	description: "RACETRACK"
 	author: "Maria Naumcheva"
-	date: "$15/06/2021$"
-	revision: "$15/06/2021$"
+	revision: "14/10/2024"
 
 class
 	RACETRACK

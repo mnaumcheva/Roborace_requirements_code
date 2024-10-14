@@ -1,8 +1,7 @@
 note
-	description: "Summary description for {LOCATION_3D}."
+	description: "3d Location data type"
 	author: "Maria Naumcheva"
-	date: "$16/06/2021$"
-	revision: "$16/06/2021$"
+	revision: "14/10/2024"
 
 deferred class
 	LOCATION_3D

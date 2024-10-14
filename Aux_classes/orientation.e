@@ -1,8 +1,7 @@
 note
 	description: "Orientation about x,y,z axes"
 	author: "Maria Naumcheva"
-	date: "$07/04/2021$"
-	revision: "$07/04/2021$"
+	revision: "14/10/2024"
 
 deferred class
 	ORIENTATION

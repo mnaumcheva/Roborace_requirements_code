@@ -1,8 +1,7 @@
 note
 	description: "GPSS+IMU sensor"
 	author: "Maria Naumcheva"
-	date: "$23/06/2021$"
-	revision: "$23/06/2021$"
+	revision: "14/12/2024"
 
 deferred class
 	INS

@@ -1,8 +1,7 @@
 note
 	description: "Camera sensor"
 	author: "Maria Naumcheva"
-	date: "$07/04/2021$"
-	revision: "$23/06/2021$"
+	revision: "14/10/2024"
 
 deferred class
 	CAMERA
@@ -21,6 +20,5 @@ feature
 
 	labels: ARRAY2 [INTEGER]
 		-- Label identifier for each pixel in the image
-
 
 end

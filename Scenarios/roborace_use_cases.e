@@ -1,8 +1,7 @@
 note
-	description: "Scenarios as specification drivers"
-	author: ""
-	date: "$Date$"
-	revision: "$Revision$"
+	description: "Use cases as specification drivers"
+	author: "Maria Naumcheva"
+	revision: "14/10/2024"
 
 class
 	ROBORACE_USE_CASES
@@ -76,6 +75,23 @@ feature
 		ensure
 			not car.is_moving
 			car.is_in_normal_mode implies car.race_is_finished
+		end
+
+
+	avoid_obstacle_or_stop
+		do
+		end
+
+	race_with_virtual_obstacles
+		do
+		end
+
+	race_with_virtual_race_cars
+		do
+		end
+
+	move_to_pit
+		do
 		end
 
 end

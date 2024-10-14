@@ -1,8 +1,7 @@
 note
 	description: "Racecar sensors"
 	author: "Maria Naumcheva"
-	date: "$07/04/2021$"
-	revision: "$23/06/2021$"
+	revision: "14/10/2024"
 
 deferred class
 	SENSORS_SETUP
